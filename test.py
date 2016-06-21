@@ -4,8 +4,6 @@ import sys
 from switch import Port
 
 
-class ArgumentError(BaseException):
-    pass
 
 
 def check_args():
@@ -13,7 +11,7 @@ def check_args():
         try:
             os.listdir(sys.argv[1])
         except WindowsError:
-            raise ArgumentError
+            raise TypeError("wrong path")
 
 
 class Switch():
@@ -50,7 +48,7 @@ class Switch():
                 if mac_ports != []:
                     for port in self.ports:
                         if mac_ports[0][1] == port.name:
-                            port.MacAddress.append(mac_ports[0][0])
+                            port.MacAddress[mac_ports[0][0]]=None
                 elif line is '':
                     break
 

@@ -5,7 +5,7 @@ class Port():
         self.name = Port
         self.Status = Status
         self.Vlan = Vlan
-        self.MacAddress = []
+        self.MacAddress = {}
 
     def __repr__(self):
         return "Port:%s  Vlan:%s Status:%s  MacAddress:%s\n\n" % (
